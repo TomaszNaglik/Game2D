@@ -1,8 +1,4 @@
-import org.lwjgl.LWJGLException;
-import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.DisplayMode;
-
-
+package core;
 public class Main {
 
 	public static void main(String[] args) {
@@ -10,7 +6,6 @@ public class Main {
 		Settings.getInstance();
 		Game game = new Game();
 		
-		game.start();
 		
 	}	
 		

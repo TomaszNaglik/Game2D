@@ -4,7 +4,7 @@ public class Settings {
 	
 	//Screen settings
 	public final int screenWidth = 1800;
-	public final int screenHeight = 1200;
+	public final int screenHeight = 1000;
 	
 	
 	private static Settings instance;

@@ -26,6 +26,7 @@ public class RenderOrganizer {
 	}
 	
 	public void render() {
+		shapes.forEach(Shape::update);
 		shapes.forEach(Shape::draw);
 	}
 }

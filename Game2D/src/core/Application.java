@@ -3,6 +3,8 @@ package core;
 
 import java.time.LocalTime;
 
+import org.lwjgl.input.Keyboard;
+
 import camera.Camera;
 import game.Game;
 import gui.Gui;
@@ -15,7 +17,7 @@ public class Application {
 	private Input input = Input.getInstance();
 	private Settings settings = Settings.getInstance();
 	private Gui gui = Gui.getInstance();
-	private Camera camera = Camera.getInstance();
+	
 	
 	private enum APP_STATE  {MENU, GAME};
 	private APP_STATE currentState = APP_STATE.GAME;
@@ -44,10 +46,14 @@ public class Application {
 			updateMetrics();
 			updateInput();
 			while(lag >= settings.OPTIMAL_TIME) {
-				camera.update();
+				
 				switch (currentState){
-				case MENU: menu.update(); break;
-				case GAME: game.update(); break;
+				case MENU: 	menu.update(); 
+							break;
+				case GAME: 	
+							
+							game.update(); 
+							break;
 				
 				default: throw new Exception();
 				}
@@ -57,7 +63,7 @@ public class Application {
 			
 		}
 		this.close();
-	}
+	} 
 	
 	protected void update() {
 		

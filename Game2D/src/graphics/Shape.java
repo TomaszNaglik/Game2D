@@ -12,4 +12,6 @@ public abstract class Shape {
 		public List<Vector2f> points = new ArrayList<>();	
 		
 		public abstract void draw();
+		public abstract void update();
+		
 }

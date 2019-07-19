@@ -3,6 +3,8 @@ package graphics;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Vector2f;
 
+import camera.Camera;
+
 public class Quad extends Shape {
 
 	private Vector2f size;
@@ -31,5 +33,11 @@ public class Quad extends Shape {
 	    GL11.glEnd();
 		
 	}
+	
+	@Override
+	public void update() {
+		//Vector2f.sub(position, Camera.getInstance().getPosition(), position);
+	}
+		
 
 }

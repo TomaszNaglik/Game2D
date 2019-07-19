@@ -1,11 +1,12 @@
 package core;
 
+import org.lwjgl.util.vector.Vector2f;
+
 public final class Settings {
 	// This will be a singleton implementation of game settings.
 	
 	//Screen settings
-	public final int screenWidth = 1800;
-	public final int screenHeight = 1000;
+	public final Vector2f screenDimensions = new Vector2f(1800, 1000);
 	
 	//Game loop
 	public final int TARGET_FPS = 100;

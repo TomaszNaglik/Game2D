@@ -6,7 +6,7 @@ public final class Settings {
 	// This will be a singleton implementation of game settings.
 	
 	//Screen settings
-	public final Vector2f screenDimensions = new Vector2f(1800, 1000);
+	public final Vector2f screenDimensions = new Vector2f(800, 400);
 	
 	//Game loop
 	public final int TARGET_FPS = 100;

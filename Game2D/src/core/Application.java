@@ -5,8 +5,8 @@ import java.time.LocalTime;
 
 import org.lwjgl.input.Keyboard;
 
-import camera.Camera;
 import game.Game;
+import graphics.Renderer;
 import gui.Gui;
 import input.Input;
 import menu.Menu;
@@ -14,8 +14,8 @@ import menu.Menu;
 public class Application {
 
 	private DisplayScreen screen = DisplayScreen.getInstance();
+	private Renderer renderer = Renderer.getInstance();
 	private Input input = Input.getInstance();
-	private Settings settings = Settings.getInstance();
 	private Gui gui = Gui.getInstance();
 	
 	
@@ -33,6 +33,8 @@ public class Application {
 	
 	public Application() throws Exception {
 		screen.start();
+		input.start();
+		renderer.start();
 		this.start();
 		
 	}
@@ -41,24 +43,24 @@ public class Application {
 		//TEMPORARY SOLUTION BEFORE MENU IS IMPLEMENTED
 		game = new Game();
 		
+		
+		
 		while(screen.isOpen()) {
 			
 			updateMetrics();
 			updateInput();
-			while(lag >= settings.OPTIMAL_TIME) {
 				
-				switch (currentState){
-				case MENU: 	menu.update(); 
-							break;
-				case GAME: 	
-							
-							game.update(); 
-							break;
-				
-				default: throw new Exception();
-				}
-				lag -= settings.OPTIMAL_TIME;
+			switch (currentState){
+			case MENU: 	menu.update(); 
+						break;
+			case GAME: 	
+						
+						game.update(); 
+						break;
+			
+			default: throw new Exception();
 			}
+			
 			updateGraphics();
 			
 		}
@@ -76,12 +78,16 @@ public class Application {
 	}
 	
 	private void updateGraphics() {
-		gui.update();
+		renderer.update();
+		//gui.update();
 		screen.update();
 	}
 	
 	private void close() {
+		input.close();
+		renderer.close();
 		screen.close();
+		
 	}
 	
 	private void updateMetrics() {
